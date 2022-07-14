@@ -1,0 +1,12 @@
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "postcoder-proxy.fullname" . }}
+  labels:
+    {{- include "postcoder-proxy.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "postcoder-proxy.selectorLabels" . | nindent 6 }}
+  maxUnavailable: 1
