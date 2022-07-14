@@ -1,0 +1,14 @@
+{{- if .Values.podDisruptionBudget.enabled }}
+---
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "image-resizer.fullname" . }}
+  labels:
+    {{- include "image-resizer.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "image-resizer.selectorLabels" . | nindent 6 }}
+  maxUnavailable: {{ .Values.podDisruptionBudget.maxUnavailable }}
+{{- end }}
