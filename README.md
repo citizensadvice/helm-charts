@@ -1,6 +1,6 @@
 # Helm charts
 
-This repo contains Helm charts forked from the community, and it's public.
+This is the public helm repository for Citizens Advice charts.
 
 ## Adding to Helm
 
