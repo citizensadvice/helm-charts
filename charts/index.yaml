@@ -1,0 +1,39 @@
+apiVersion: v1
+entries:
+  elasticsearch:
+  - apiVersion: v1
+    appVersion: 7.6.2
+    created: "2022-07-14T14:13:45.353693+01:00"
+    description: CA fork of Elastic helm chart for Elasticsearch
+    digest: 0bfc06b4683afe33ee8add990db966a3c535ad018f112c2d9313a1f03c96073b
+    home: https://github.com/citizensadvice/helm-charts
+    icon: https://helm.elastic.co/icons/elasticsearch.png
+    maintainers:
+    - email: ca-devops@citizensadvice.org.uk
+      name: CA Devops
+    name: elasticsearch
+    sources:
+    - https://github.com/elastic/elasticsearch
+    urls:
+    - elasticsearch-7.6.2.tgz
+    version: 7.6.2
+  postcoder-proxy:
+  - apiVersion: v2
+    appVersion: v2.0.0
+    created: "2022-07-14T14:13:45.363659+01:00"
+    dependencies:
+    - alias: redis
+      condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - postcoder-redis
+      version: 16.10.0
+    description: A Helm chart for Kubernetes
+    digest: e107067018b08ca5ae5757fda6bf94120fb2347fac194cd2086b194db10ca7eb
+    name: postcoder-proxy
+    type: application
+    urls:
+    - postcoder-proxy-0.2.0.tgz
+    version: 0.2.0
+generated: "2022-07-14T14:13:45.347535+01:00"
