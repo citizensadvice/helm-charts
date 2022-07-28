@@ -3,7 +3,7 @@ entries:
   elasticsearch:
   - apiVersion: v1
     appVersion: 7.6.2
-    created: "2022-07-14T16:47:27.166923+01:00"
+    created: "2022-07-28T15:53:49.115469+01:00"
     description: CA fork of Elastic helm chart for Elasticsearch
     digest: 0bfc06b4683afe33ee8add990db966a3c535ad018f112c2d9313a1f03c96073b
     home: https://github.com/citizensadvice/helm-charts
@@ -20,7 +20,17 @@ entries:
   image-resizer:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-07-14T16:47:27.167573+01:00"
+    created: "2022-07-28T15:53:49.116754+01:00"
+    description: Image resizing service - https://github.com/citizensadvice/image-resizer
+    digest: 1e15a0d41136d5192ac6873e6e10bf74e499d7df0d1ced4fd51544d58bd9b4c6
+    name: image-resizer
+    type: application
+    urls:
+    - charts/image-resizer-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-07-28T15:53:49.116156+01:00"
     description: Image resizing service - https://github.com/citizensadvice/image-resizer
     digest: 344c94c4be3a8a50f682833dece58ec59ec88f8c20c18d1ab33ff6ae0edc5e7e
     name: image-resizer
@@ -31,7 +41,7 @@ entries:
   postcoder-proxy:
   - apiVersion: v2
     appVersion: v3.0.0
-    created: "2022-07-14T16:47:27.183936+01:00"
+    created: "2022-07-28T15:53:49.132361+01:00"
     dependencies:
     - alias: redis
       condition: redis.enabled
@@ -49,7 +59,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: v2.0.0
-    created: "2022-07-14T16:47:27.176059+01:00"
+    created: "2022-07-28T15:53:49.126081+01:00"
     dependencies:
     - alias: redis
       condition: redis.enabled
@@ -65,4 +75,4 @@ entries:
     urls:
     - charts/postcoder-proxy-0.2.0.tgz
     version: 0.2.0
-generated: "2022-07-14T16:47:27.164395+01:00"
+generated: "2022-07-28T15:53:49.113007+01:00"
