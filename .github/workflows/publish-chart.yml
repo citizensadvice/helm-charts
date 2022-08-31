@@ -1,0 +1,38 @@
+name: Publish Charts
+
+on:
+  push:
+    branches: [ $default-branch ]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: pip3 install pyyaml
+
+      - name: Install Helm
+        uses: azure/setup-helm@v1
+
+      - name: Configure Git
+        run:  |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+
+      - name: Lint Charts
+        run: for CHART in $(ls src); do helm lint src/$CHART; done
+          
+      - name: Validate Charts
+        run: python3 bin/validate.py
+
+      - name: Package Charts
+        uses: helm/chart-releaser-action@v1.4.0
+        with:
+          version: 1.4.0
+          charts_dir: src
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
