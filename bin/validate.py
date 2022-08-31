@@ -1,6 +1,6 @@
 from operator import truediv
 from os import listdir, getcwd, path
-import yaml
+import yaml, re
 
 def try_get_value(chart: dict, key: str) -> str:
     try:
@@ -43,7 +43,7 @@ def validate_chart_file(chart_file) -> bool:
     if maintainer_email != "ca-devops@citizensadvice.org.uk":
         failed = fail("maintainer email")
 
-    if version == "":
+    if not re.match("^\d{1,3}.\d{1,3}.\d{1,3}$", version):
         failed = fail("version")
 
     if icon == "":
