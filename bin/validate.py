@@ -56,6 +56,8 @@ def main() -> None:
         with open(path.join(cwd,"src",chart,"Chart.yaml")) as f:
             chart_file = f.read()
         validate_chart_file(chart_file)
-            
+    
+    print(">\n> All charts successfully validated")
+
 if __name__ == "__main__":
     main()
