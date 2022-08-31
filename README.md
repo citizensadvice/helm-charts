@@ -5,7 +5,7 @@ This is the public helm repository for Citizens Advice charts.
 ## Adding to Helm
 
 ```
-helm repo add citizensadvice 'https://raw.githubusercontent.com/citizensadvice/helm-charts/master/'
+helm repo add citizensadvice 'https://citizensadvice.github.io/helm-charts'
 helm install -n test elasticsearch citizensadvice/elasticsearch
 ```
 
@@ -30,7 +30,10 @@ sources:
 icon: https://helm.elastic.co/icons/elasticsearch.png
 ```
 
-- package the chart using `helm package <chart_dir>`
-- copy the chart archive into the `charts/` directory
-- run `helm repo index .` to update `index.yaml`
-- open PR
+- Add the chart source to the `src` directory
+- Create a pull request to `master`
+- Chart will be published upon merge
+
+## Validator
+
+The Python script `bin/validate.py` will check the validity of the `Chart.yaml` in the `src` directory according to the above criteria.
