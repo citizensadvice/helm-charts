@@ -21,7 +21,6 @@ def validate_chart_file(chart_file) -> bool:
     home = try_get_value(chart, "home")
     description = try_get_value(chart, "description")
     version = try_get_value(chart, "version")
-    icon = try_get_value(chart, "icon")
 
     maintainers = try_get_value(chart, "maintainers")
     try:
@@ -45,9 +44,6 @@ def validate_chart_file(chart_file) -> bool:
 
     if not re.match("^\d{1,3}.\d{1,3}.\d{1,3}$", version):
         failed = fail("version")
-
-    if icon == "":
-        failed = fail("icon")
 
     if failed:
         print(f">\n>  One or more checks for chart '{chart['name']}' have failed. Exiting 1.")
