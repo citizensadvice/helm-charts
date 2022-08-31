@@ -31,3 +31,8 @@ dependencies:
     alias: redis
     tags:
       - postcoder-redis
+
+home: https://github.com/citizensadvice/helm-charts
+maintainers:
+- email: ca-devops@citizensadvice.org.uk
+  name: CA Devops
