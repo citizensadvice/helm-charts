@@ -65,13 +65,23 @@ jobs:
       - name: Set up chart-testing
         uses: helm/chart-testing-action@v2.2.1
       
+      - name: Install AWS CLI
+        uses: unfor19/install-aws-cli-action@v1.0.3
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-1
+
       - name: Create kind ${{ matrix.k8s }} cluster
         uses: helm/kind-action@v1.3.0
         with:
           node_image: kindest/node:${{ matrix.k8s }}
-      
+
       - name: Run chart-testing (install) ${{ matrix.k8s }}
-        run: ct install --all
+        run: ct install --all --helm-extra-set-args '--set=imagePullSecrets=$(aws ecr get-login-password)'
         env:
           CT_CHART_DIRS: src
 
