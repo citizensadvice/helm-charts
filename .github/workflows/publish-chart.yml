@@ -32,7 +32,7 @@ jobs:
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
       - name: Lint Charts
-        run: ct lint
+        run: ct lint --all --check-version-increment=false --validate-maintainers=false
         env:
           CT_CHART_DIRS: src
           
