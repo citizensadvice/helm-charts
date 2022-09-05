@@ -26,10 +26,8 @@ jobs:
       - name: Set up chart-testing
         uses: helm/chart-testing-action@v2.2.1
 
-      - name: Configure Git
-        run:  |
-          git config user.name "$GITHUB_ACTOR"
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+      - name: Add Helm Repos
+        run:  helm repo add bitnami https://charts.bitnami.com/bitnami
 
       - name: Lint Charts
         run: ct lint --all --check-version-increment=false --validate-maintainers=false
@@ -74,6 +72,9 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-1
+
+      - name: Add Helm Repos
+        run:  helm repo add bitnami https://charts.bitnami.com/bitnami
 
       - name: Create kind ${{ matrix.k8s }} cluster
         uses: helm/kind-action@v1.3.0
