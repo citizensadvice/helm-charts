@@ -83,8 +83,7 @@ jobs:
 
       - name: Run chart-testing (install) ${{ matrix.k8s }}
         run: |
-          ct install --all \
-          --helm-extra-args "--set=env.NEW_RELIC_AGENT_ENABLED=false --set=env.MOCK_MODE='true'"
+          ct install --all
         env:
           CT_CHART_DIRS: src
 
