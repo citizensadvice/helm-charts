@@ -14,7 +14,7 @@ externalSecrets: &external_secrets_config
 
 env:
   APP_ENV: development
-  NEW_RELIC_AGENT_ENABLED: false
+  NEW_RELIC_AGENT_ENABLED: 'false'
   CACHE_TTL: '2592000'
   CACHE_URL: redis://redis-master:6379/1
 
