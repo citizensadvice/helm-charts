@@ -2,7 +2,7 @@ from operator import truediv
 from os import listdir, getcwd, path, environ
 import yaml, re
 
-def try_get_value(chart: dict, key: str) -> str:
+def try_get_value(chart: dict, key: str) -> str | dict:
     try:
         value = chart[key]
     except KeyError:
@@ -13,7 +13,7 @@ def fail(value) -> bool:
     print(f">    Error: Chart value '{value}' is incorrect or not set!")
     return True
 
-def validate_chart_file(chart_file) -> bool:
+def validate_chart_file(chart_file) -> None:
     failed = False
     chart = yaml.safe_load(chart_file)
     print(f"> Validating chart {chart['name']}...")
@@ -50,9 +50,19 @@ def validate_chart_file(chart_file) -> bool:
         exit(1)
 
 def main() -> None:
-    charts_dir = environ["CHARTS_DIR"]
-    charts =  listdir(charts_dir)
+    try:
+        charts_dir = environ["CHARTS_DIR"]
+    except KeyError:
+        print("CHARTS_DIR not defined! Exiting 1.")
+        exit(1)
+
     cwd = getcwd()
+    charts = listdir(path.join(cwd, charts_dir))
+
+    if len(charts) < 1:
+        print(f"No directories found in {charts_dir}. Exiting.")
+        exit(0)
+
     for chart in charts:
         with open(path.join(cwd,charts_dir,chart,"Chart.yaml")) as f:
             chart_file = f.read()
