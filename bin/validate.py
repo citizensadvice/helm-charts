@@ -50,8 +50,11 @@ def validate_chart_file(chart_file) -> None:
         exit(1)
 
 def main() -> None:
-
-    charts_dir = "Charts"
+    try:
+        charts_dir = environ["CHARTS_DIR"]
+    except KeyError:
+        print("CHARTS_DIR not defined! Exiting 1.")
+        exit(1)
 
     cwd = getcwd()
     charts = listdir(path.join(cwd, charts_dir))
