@@ -36,6 +36,8 @@ jobs:
           
       - name: Validate Charts
         run: python3 bin/validate.py
+        env:
+          CHARTS_DIR: Charts
 
   test-charts:
     name: test-charts

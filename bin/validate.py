@@ -1,5 +1,5 @@
 from operator import truediv
-from os import listdir, getcwd, path
+from os import listdir, getcwd, path, environ
 import yaml, re
 
 def try_get_value(chart: dict, key: str) -> str:
@@ -50,10 +50,11 @@ def validate_chart_file(chart_file) -> bool:
         exit(1)
 
 def main() -> None:
-    charts =  listdir("src")
+    charts_dir = environ["CHARTS_DIR"]
+    charts =  listdir(charts_dir)
     cwd = getcwd()
     for chart in charts:
-        with open(path.join(cwd,"src",chart,"Chart.yaml")) as f:
+        with open(path.join(cwd,charts_dir,chart,"Chart.yaml")) as f:
             chart_file = f.read()
         validate_chart_file(chart_file)
     
