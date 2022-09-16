@@ -20,6 +20,20 @@ entries:
   image-resizer:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2022-09-16T10:24:23.572365894Z"
+    description: Image resizing service - https://github.com/citizensadvice/image-resizer
+    digest: 57212eafc27047d294a30ae363655484e256ff506be45344e2b1e826c9fd604f
+    home: https://github.com/citizensadvice/helm-charts
+    maintainers:
+    - email: ca-devops@citizensadvice.org.uk
+      name: CA Devops
+    name: image-resizer
+    type: application
+    urls:
+    - https://github.com/citizensadvice/helm-charts/releases/download/image-resizer-0.2.4/image-resizer-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2022-08-30T17:17:06.979169+01:00"
     description: Image resizing service - https://github.com/citizensadvice/image-resizer
     digest: 1e15a0d41136d5192ac6873e6e10bf74e499d7df0d1ced4fd51544d58bd9b4c6
@@ -93,4 +107,4 @@ entries:
     urls:
     - charts/postcoder-proxy-0.2.0.tgz
     version: 0.2.0
-generated: "2022-08-30T17:17:06.973093+01:00"
+generated: "2022-09-16T10:24:23.572378794Z"
