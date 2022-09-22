@@ -15,7 +15,7 @@ entries:
     sources:
     - https://github.com/elastic/elasticsearch
     urls:
-    - legacy-charts/elasticsearch-7.6.2.tgz
+    - charts/elasticsearch-7.6.2.tgz
     version: 7.6.2
   image-resizer:
   - apiVersion: v2
@@ -26,7 +26,7 @@ entries:
     name: image-resizer
     type: application
     urls:
-    - legacy-charts/image-resizer-0.2.3.tgz
+    - charts/image-resizer-0.2.3.tgz
     version: 0.2.3
   - apiVersion: v2
     appVersion: 1.0.0
@@ -36,7 +36,7 @@ entries:
     name: image-resizer
     type: application
     urls:
-    - legacy-charts/image-resizer-0.2.2.tgz
+    - charts/image-resizer-0.2.2.tgz
     version: 0.2.2
   postcoder-proxy:
   - apiVersion: v2
@@ -73,7 +73,7 @@ entries:
     name: postcoder-proxy
     type: application
     urls:
-    - legacy-charts/postcoder-proxy-0.3.0.tgz
+    - charts/postcoder-proxy-0.3.0.tgz
     version: 0.3.0
   - apiVersion: v2
     appVersion: v2.0.0
@@ -91,6 +91,6 @@ entries:
     name: postcoder-proxy
     type: application
     urls:
-    - legacy-charts/postcoder-proxy-0.2.0.tgz
+    - charts/postcoder-proxy-0.2.0.tgz
     version: 0.2.0
 generated: "2022-08-30T17:17:06.973093+01:00"
