@@ -37,3 +37,13 @@ icon: https://helm.elastic.co/icons/elasticsearch.png
 ## Validator
 
 The Python script `bin/validate.py` will check the validity of the `Chart.yaml` in the `src` directory according to the above criteria.
+
+## Troubleshooting
+
+If the `publish-charts` Action fails with the message:
+
+```
+Error: error creating GitHub release <chart name>-<chart version>: POST https://api.github.com/repos/citizensadvice/helm-charts/releases: 422 Validation Failed [{Resource:Release Field:tag_name Code:already_exists Message:}]
+```
+
+Then you need to bump the version number for said chart, as it will fail if you make changes to a chart but fail to bump the version number.
