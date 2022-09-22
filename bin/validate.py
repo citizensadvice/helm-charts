@@ -64,9 +64,12 @@ def main() -> None:
         exit(0)
 
     for chart in charts:
-        with open(path.join(cwd,charts_dir,chart,"Chart.yaml")) as f:
-            chart_file = f.read()
-        validate_chart_file(chart_file)
+        try:
+            with open(path.join(cwd,charts_dir,chart,"Chart.yaml")) as f:
+                chart_file = f.read()
+                validate_chart_file(chart_file)
+        except NotADirectoryError:
+            continue
     
     print(">\n> All charts successfully validated")
 
