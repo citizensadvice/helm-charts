@@ -1,6 +1,6 @@
 apiVersion: v2
 name: mokta
-description: Mokta - https://github.com/citizensadvice/mokta
+description: Standalone implementation of Mokta 3 for use with review apps - https://github.com/citizensadvice/mokta
 type: application
 version: 0.1.0
 appVersion: "3.0.0.pre1"
