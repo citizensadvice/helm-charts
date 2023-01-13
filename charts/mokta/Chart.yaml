@@ -1,0 +1,10 @@
+apiVersion: v2
+name: mokta
+description: Mokta - https://github.com/citizensadvice/mokta
+type: application
+version: 0.1.0
+appVersion: "3.0.0.pre1"
+home: https://github.com/citizensadvice/helm-charts
+maintainers:
+  - email: ca-devops@citizensadvice.org.uk
+    name: CA Devops

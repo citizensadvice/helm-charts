@@ -1,0 +1,21 @@
+image: public.ecr.aws/citizensadvice/mokta:3.0.0.pre1
+
+env:
+  SAFE_HOSTS: https://*.qa.citizensadvice.org.uk
+  OKTA_EMBED_LINK: https://cadev.oktapreview.com/home/oidc_client/0oa1hwcw23bWFpbHf0h8/aln5z7uhkbM6y7bMy0g7
+
+annotations:
+
+ingress:
+  enabled: true
+  hostname: mokta.qa.citizensadvice.org.uk
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  paths:
+    - path: /
+      pathType: Prefix
+      backend:
+        service:
+          name: mokta
+          port:
+            name: http

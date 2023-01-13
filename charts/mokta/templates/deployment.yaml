@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mokta
+  annotations:
+{{- if .Values.annotations }}
+{{ toYaml .Values.annotations | indent 8 }}
+{{- end }}
+  labels:
+    {{- include "labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "selectorLabels" . | nindent 6 }}
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        {{- include "selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/name: {{ .Release.Name }}
+    spec:
+      # serviceAccountName: mokta
+      securityContext:
+        runAsUser: 0
+        runAsGroup: 0
+      volumes:
+        - name: okta-form
+          configMap:
+            name: mokta-form
+      containers:
+      - name: mokta
+        volumeMounts:
+          - name: okta-form
+            mountPath: /app/form
+        env:
+          {{- range $key, $val := .Values.env }}
+          - name: {{ $key }}
+            value: {{ $val | quote }}
+          {{- end }}
+        image: {{ .Values.image }}
+        imagePullPolicy: IfNotPresent
+        args: ["ruby", "app.rb", "-o", "0.0.0.0", "-p", "4001"]
+        ports:
+          - name: http
+            containerPort: 4001
