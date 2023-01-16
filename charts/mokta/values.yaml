@@ -1,0 +1,21 @@
+image:
+  repository: public.ecr.aws/citizensadvice/mokta
+  tag: 3.0.0.pre1
+
+env:
+
+annotations:
+
+ingress:
+  enabled: true
+  hostname: mokta.qa.citizensadvice.org.uk
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  paths:
+    - path: /
+      pathType: Prefix
+      backend:
+        service:
+          name: mokta
+          port:
+            name: http
