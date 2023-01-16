@@ -66,6 +66,21 @@ entries:
     urls:
     - charts/image-resizer-0.2.2.tgz
     version: 0.2.2
+  mokta:
+  - apiVersion: v2
+    appVersion: 3.0.0.pre1
+    created: "2023-01-16T15:35:30.418584088Z"
+    description: Standalone implementation of Mokta 3 for use with review apps - https://github.com/citizensadvice/mokta
+    digest: 4855b0cb525d471bc2fb9f94b549c574640bca4402262852192ed55530347a3e
+    home: https://github.com/citizensadvice/helm-charts
+    maintainers:
+    - email: ca-devops@citizensadvice.org.uk
+      name: CA Devops
+    name: mokta
+    type: application
+    urls:
+    - https://github.com/citizensadvice/helm-charts/releases/download/mokta-0.1.1/mokta-0.1.1.tgz
+    version: 0.1.1
   postcoder-proxy:
   - apiVersion: v2
     appVersion: v4.0.2
@@ -121,4 +136,4 @@ entries:
     urls:
     - charts/postcoder-proxy-0.2.0.tgz
     version: 0.2.0
-generated: "2022-09-22T08:34:15.210776267Z"
+generated: "2023-01-16T15:35:30.418599688Z"
