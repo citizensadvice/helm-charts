@@ -17,7 +17,6 @@ spec:
     metadata:
       labels:
         {{- include "selectorLabels" . | nindent 8 }}
-        app.kubernetes.io/name: {{ .Release.Name }}
     spec:
       # serviceAccountName: mokta
       securityContext:
