@@ -9,7 +9,7 @@ env:
 annotations:
 
 ingress:
-  enabled: false
+  enabled: true
   # DISABLED BY DEFAULT, WILL FAIL TESTINGING IF ENABLED
   # ENABLE THIS WHEN DEPLOYING USING --set ingress.enabled=true
   hostname: mokta.devops.citizensadvice.org.uk
@@ -17,7 +17,7 @@ ingress:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
     alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/ssl-redirect: 443
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
     alb.ingress.kubernetes.io/tags: Environment=review,Product=mokta
   paths:
     - path: /
