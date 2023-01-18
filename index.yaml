@@ -69,6 +69,20 @@ entries:
   mokta:
   - apiVersion: v2
     appVersion: 3.0.0.pre1
+    created: "2023-01-18T10:50:27.394615688Z"
+    description: Standalone implementation of Mokta 3 for use with review apps - https://github.com/citizensadvice/mokta
+    digest: f5f3c5aeecbe642042ff951a98a1dd66d68f196be77b3f7c6eacb8a278226d5e
+    home: https://github.com/citizensadvice/helm-charts
+    maintainers:
+    - email: ca-devops@citizensadvice.org.uk
+      name: CA Devops
+    name: mokta
+    type: application
+    urls:
+    - https://github.com/citizensadvice/helm-charts/releases/download/mokta-0.3.6/mokta-0.3.6.tgz
+    version: 0.3.6
+  - apiVersion: v2
+    appVersion: 3.0.0.pre1
     created: "2023-01-18T10:34:20.460601842Z"
     description: Standalone implementation of Mokta 3 for use with review apps - https://github.com/citizensadvice/mokta
     digest: ac0030ed5dd90e26761d82129d5406e9da583a5867c64529c58342c3518aea4d
@@ -192,4 +206,4 @@ entries:
     urls:
     - charts/postcoder-proxy-0.2.0.tgz
     version: 0.2.0
-generated: "2023-01-18T10:34:20.460632443Z"
+generated: "2023-01-18T10:50:27.394668191Z"
