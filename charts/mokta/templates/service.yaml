@@ -6,7 +6,7 @@ metadata:
     {{- include "labels" . | nindent 4 }}
   annotations:
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     - name: http
       protocol: TCP
