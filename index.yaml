@@ -167,6 +167,28 @@ entries:
     version: 0.1.1
   postcoder-proxy:
   - apiVersion: v2
+    appVersion: v4.0.3
+    created: "2023-02-02T10:37:00.017135926Z"
+    dependencies:
+    - alias: redis
+      condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - postcoder-redis
+      version: 16.13.2
+    description: A Helm chart for Kubernetes
+    digest: 159fc700ad2691913daee11d2dcd1248de4b6b9b9a55e7974bdeb3ffd0debd5e
+    home: https://github.com/citizensadvice/helm-charts
+    maintainers:
+    - email: ca-devops@citizensadvice.org.uk
+      name: CA Devops
+    name: postcoder-proxy
+    type: application
+    urls:
+    - https://github.com/citizensadvice/helm-charts/releases/download/postcoder-proxy-0.4.1/postcoder-proxy-0.4.1.tgz
+    version: 0.4.1
+  - apiVersion: v2
     appVersion: v4.0.2
     created: "2022-08-30T17:17:07.000591+01:00"
     dependencies:
@@ -220,4 +242,4 @@ entries:
     urls:
     - charts/postcoder-proxy-0.2.0.tgz
     version: 0.2.0
-generated: "2023-02-01T13:34:35.813662389Z"
+generated: "2023-02-02T10:37:00.01733743Z"
