@@ -31,7 +31,7 @@ icon: https://helm.elastic.co/icons/elasticsearch.png
 ```
 
 - Add the chart source to the `src` directory
-- Create a pull request to `master`
+- Create a pull request to `main`
 - Chart will be published upon merge
 
 ## Validator
