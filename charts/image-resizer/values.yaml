@@ -12,6 +12,8 @@ externalSecrets: &external_secrets_config
   enabled: false
   stores: {}
 
+env: {}
+
 image:
   repository: public.ecr.aws/citizensadvice/image-resizer
   pullPolicy: IfNotPresent
