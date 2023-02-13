@@ -14,15 +14,12 @@ externalSecrets: &external_secrets_config
 
 env:
   APP_ENV: development
-  NEW_RELIC_AGENT_ENABLED: 'false'
   CACHE_TTL: '2592000'
   CACHE_URL: redis://redis-master:6379/1
 
 image:
   repository: public.ecr.aws/citizensadvice/postcoder
   pullPolicy: IfNotPresent
-  # tag defaults to the chart app version
-  tag: main
 
 imagePullSecrets: []
 nameOverride: ""

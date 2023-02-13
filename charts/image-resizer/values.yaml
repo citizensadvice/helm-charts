@@ -4,11 +4,17 @@
 
 replicaCount: 1
 
+# https://external-secrets.io/ is available in citizensadvice EKS clusters
+# where you can use vault, aws-paramter-store and aws-secret-manager stores
+# to retrieve external secrets into kubernetes secrets and load them into
+# the container environment variables
+externalSecrets: &external_secrets_config
+  enabled: false
+  stores: {}
+
 image:
   repository: public.ecr.aws/citizensadvice/image-resizer
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: main
 
 imagePullSecrets: []
 nameOverride: ""
