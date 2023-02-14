@@ -18,6 +18,7 @@ env:
 
 image:
   repository: public.ecr.aws/citizensadvice/postcoder
+  tag: "v4.1.0"
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []

@@ -16,6 +16,7 @@ env: {}
 
 image:
   repository: public.ecr.aws/citizensadvice/image-resizer
+  tag: "v2.2.0"
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
