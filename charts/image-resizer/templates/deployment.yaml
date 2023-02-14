@@ -56,6 +56,13 @@ spec:
               scheme: HTTP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          envFrom:
+          - configMapRef:
+              name: {{ include "image-resizer.fullname" . }}
+          {{- if .Values.externalSecrets.enabled }}
+          - secretRef:
+              name: {{ include "image-resizer.fullname" . }}
+          {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

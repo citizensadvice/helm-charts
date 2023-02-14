@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "image-resizer.fullname" . }}
+  labels:
+    {{- include "image-resizer.labels" . | nindent 4 }}
+data:
+{{ toYaml .Values.env | indent 2 }}
