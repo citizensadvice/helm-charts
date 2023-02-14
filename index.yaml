@@ -19,6 +19,20 @@ entries:
     version: 7.6.2
   image-resizer:
   - apiVersion: v2
+    appVersion: v2.2.0
+    created: "2023-02-14T10:11:38.941135917Z"
+    description: Image resizing service - https://github.com/citizensadvice/image-resizer
+    digest: 416163badecc5361980b039d83c79113d66f2141d1a57d2f2591ce479537b040
+    home: https://github.com/citizensadvice/helm-charts
+    maintainers:
+    - email: ca-devops@citizensadvice.org.uk
+      name: CA Devops
+    name: image-resizer
+    type: application
+    urls:
+    - https://github.com/citizensadvice/helm-charts/releases/download/image-resizer-0.3.0/image-resizer-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
     appVersion: v2.1.1
     created: "2023-02-06T15:39:47.687810315Z"
     description: Image resizing service - https://github.com/citizensadvice/image-resizer
@@ -195,6 +209,28 @@ entries:
     version: 0.1.1
   postcoder-proxy:
   - apiVersion: v2
+    appVersion: v4.1.0
+    created: "2023-02-14T10:11:39.157522978Z"
+    dependencies:
+    - alias: redis
+      condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - postcoder-redis
+      version: 16.13.2
+    description: A Helm chart for Kubernetes
+    digest: c587204064f1d6c7816afdd3aa5bbe11154baee916075c5405ee912aa7af777e
+    home: https://github.com/citizensadvice/helm-charts
+    maintainers:
+    - email: ca-devops@citizensadvice.org.uk
+      name: CA Devops
+    name: postcoder-proxy
+    type: application
+    urls:
+    - https://github.com/citizensadvice/helm-charts/releases/download/postcoder-proxy-0.4.2/postcoder-proxy-0.4.2.tgz
+    version: 0.4.2
+  - apiVersion: v2
     appVersion: v4.0.3
     created: "2023-02-02T10:37:00.017135926Z"
     dependencies:
@@ -270,4 +306,4 @@ entries:
     urls:
     - charts/postcoder-proxy-0.2.0.tgz
     version: 0.2.0
-generated: "2023-02-06T15:39:47.687978812Z"
+generated: "2023-02-14T10:11:39.157569178Z"
