@@ -1,6 +1,5 @@
 image:
-  repository: public.ecr.aws/citizensadvice/mokta
-  tag: 3.0.0.pre3
+  repository: 979633842206.dkr.ecr.eu-west-1.amazonaws.com/mokta
 
 env:
   SAFE_HOSTS: https://*.qa.citizensadvice.org.uk
