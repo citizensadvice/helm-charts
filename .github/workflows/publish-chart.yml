@@ -6,7 +6,6 @@ on:
 jobs:
   validate-charts:
     runs-on: ubuntu-22.04
-
     steps:
       - name: Git Checkout
         uses: actions/checkout@v3
@@ -39,6 +38,9 @@ jobs:
   test-charts:
     name: test-charts
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     needs: validate-charts
     strategy:
       matrix:
@@ -60,9 +62,9 @@ jobs:
         uses: helm/chart-testing-action@v2.2.1
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v1-node16
         with:
-          role-to-assume: 'arn:aws:iam::979633842206:role/HelmChartsDeployment'
+          role-to-assume: arn:aws:iam::979633842206:role/HelmChartsDeployment
           role-session-name: helm-charts-deploy
           aws-region: eu-west-1
 
