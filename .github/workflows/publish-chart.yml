@@ -86,7 +86,7 @@ jobs:
 
       - name: Run chart-testing (install) ${{ matrix.k8s }}
         run: |
-          ct install --all --namespace default --helm-extra-set-args "--set=image.imagePullSecretsRegcred=true"
+          ct install --all --namespace=default --helm-extra-set-args="--set=image.imagePullSecretsRegcred=true"
 
   publish-charts:
     runs-on: ubuntu-22.04
