@@ -2,7 +2,11 @@ name: Publish Charts
 
 on:
   push:
+    branches:
+      - main
   pull_request:
+    branches:
+      - main
 
 concurrency:
   group: chart-test-${{ github.ref }}
