@@ -93,9 +93,20 @@ jobs:
           --docker-password=$(aws ecr get-login-password) \
           --namespace=default
 
+      - name: Add additional chart values
+        run: |
+          # Because the --helm-extra-set-args flag is apparently broken in CI
+          # this method is used instead
+          
+          mkdir charts/mokta/ci
+          tee charts/mokta/ci/*-values.yaml<<EOF>>/dev/null
+          image:
+            imagePullSecretsRegcred: true
+          EOF
+
       - name: Run chart-testing (install) ${{ matrix.k8s }}
         run: |
-          ct install --all --namespace=default --helm-extra-set-args "--set=image.imagePullSecretsRegcred=true"
+          ct install --all --namespace=default
 
   publish-charts:
     runs-on: ubuntu-22.04
