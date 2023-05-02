@@ -19,6 +19,10 @@ spec:
         {{- include "selectorLabels" . | nindent 8 }}
     spec:
       # serviceAccountName: mokta
+      {{- if .Values.image.imagePullSecretsRegcred | default false }}
+      imagePullSecrets:
+        - name: regcred
+      {{- end }}
       securityContext:
         runAsUser: 1000
         runAsGroup: 1000
