@@ -1,0 +1,10 @@
+apiVersion: v2
+description: A Helm chart for Kubernetes
+home: https://github.com/citizensadvice/helm-charts
+maintainers:
+  - email: ca-devops@citizensadvice.org.uk
+    name: CA Devops
+name: kube-schedule-scaler
+version: 0.1.0
+appVersion: "0.1.0"
+type: application

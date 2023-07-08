@@ -1,0 +1,51 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ include "kube-schedule-scaler.fullname" . }}-kube-schedule-scaler
+  labels:
+  {{- include "kube-schedule-scaler.labels" . | nindent 4 }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: '{{ include "kube-schedule-scaler.fullname" . }}-kube-schedule-scaler'
+subjects:
+- kind: ServiceAccount
+  name: '{{ include "kube-schedule-scaler.fullname" . }}-kube-schedule-scaler'
+  namespace: '{{ .Release.Namespace }}'
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "kube-schedule-scaler.fullname" . }}-kube-schedule-scaler
+  labels:
+  {{- include "kube-schedule-scaler.labels" . | nindent 4 }}
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs:
+  - get
+  - list
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  verbs:
+  - get
+  - list
+- apiGroups:
+  - apps
+  resources:
+  - deployments/scale
+  verbs:
+  - patch
+- apiGroups:
+  - autoscaling
+  - extensions
+  resources:
+  - horizontalpodautoscalers
+  verbs:
+  - get
+  - list
+  - patch
