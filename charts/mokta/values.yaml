@@ -19,6 +19,7 @@ ingress:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/ssl-redirect: '443'
     alb.ingress.kubernetes.io/tags: Environment=review,Product=mokta
+    alb.ingress.kubernetes.io/healthcheck-path: /status
   paths:
     - path: /
       pathType: Prefix
