@@ -2,7 +2,7 @@ apiVersion: v2
 name: mokta
 description: Standalone implementation of Mokta 3 for use with review apps - https://github.com/citizensadvice/mokta
 type: application
-version: 0.3.9
+version: 0.4.9
 appVersion: v3.0.1
 home: https://github.com/citizensadvice/helm-charts
 maintainers:
