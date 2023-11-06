@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "kube-schedule-scaler.fullname" . }}-kube-schedule-scaler
+  labels:
+    app: kube-schedule-scaler
+  {{- include "kube-schedule-scaler.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.kubeScheduleScaler.replicas }}
+  selector:
+    matchLabels:
+      app: kube-schedule-scaler
+    {{- include "kube-schedule-scaler.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: kube-schedule-scaler
+      {{- include "kube-schedule-scaler.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - env:
+        - name: KUBERNETES_CLUSTER_DOMAIN
+          value: {{ quote .Values.kubernetesClusterDomain }}
+        image: {{ .Values.kubeScheduleScaler.kubeScheduleScaler.image.repository }}:{{
+          .Values.kubeScheduleScaler.kubeScheduleScaler.image.tag | default .Chart.AppVersion
+          }}
+        imagePullPolicy: {{ .Values.kubeScheduleScaler.kubeScheduleScaler.imagePullPolicy
+          }}
+        name: kube-schedule-scaler
+        resources: {{- toYaml .Values.kubeScheduleScaler.kubeScheduleScaler.resources |
+          nindent 10 }}
+      securityContext:
+        runAsUser: 1000
+      serviceAccountName: {{ include "kube-schedule-scaler.fullname" . }}-kube-schedule-scaler
