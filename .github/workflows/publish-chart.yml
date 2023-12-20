@@ -71,7 +71,7 @@ jobs:
         uses: helm/chart-testing-action@v2.4.0
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1-node16
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::979633842206:role/HelmChartsDeployment
           role-session-name: helm-charts-deploy
