@@ -28,13 +28,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.10'
+          python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@v2.4.0
+        uses: helm/chart-testing-action@v2.6.1
 
       - name: Add Helm Repos
-        run:  helm repo add bitnami https://charts.bitnami.com/bitnami
+        run: helm repo add bitnami https://charts.bitnami.com/bitnami
 
       - name: Lint Charts
         run: ct lint --all --check-version-increment=false --validate-maintainers=false
@@ -65,10 +65,10 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.10'
+          python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@v2.4.0
+        uses: helm/chart-testing-action@v2.6.1
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -78,7 +78,7 @@ jobs:
           aws-region: eu-west-1
 
       - name: Add Helm Repos
-        run:  helm repo add bitnami https://charts.bitnami.com/bitnami
+        run: helm repo add bitnami https://charts.bitnami.com/bitnami
 
       - name: Create kind ${{ matrix.k8s }} cluster
         uses: helm/kind-action@v1.5.0
@@ -97,7 +97,7 @@ jobs:
         run: |
           # Because the --helm-extra-set-args flag is apparently broken in CI
           # this method is used instead
-          
+
           mkdir charts/mokta/ci
           tee charts/mokta/ci/*-values.yaml<<EOF>>/dev/null
           image:
@@ -122,7 +122,7 @@ jobs:
         uses: azure/setup-helm@v3
 
       - name: Add Helm Repos
-        run:  helm repo add bitnami https://charts.bitnami.com/bitnami
+        run: helm repo add bitnami https://charts.bitnami.com/bitnami
 
       - name: Configure Git
         run: |
