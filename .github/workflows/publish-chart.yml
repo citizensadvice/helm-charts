@@ -23,7 +23,7 @@ jobs:
         run: pip3 install pyyaml
 
       - name: Install Helm
-        uses: azure/setup-helm@v3
+        uses: azure/setup-helm@v4
 
       - name: Set up Python
         uses: actions/setup-python@v2
