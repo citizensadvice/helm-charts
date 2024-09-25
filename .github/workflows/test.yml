@@ -1,9 +1,4 @@
-name: Publish Charts
-
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
@@ -14,10 +9,10 @@ concurrency:
 
 jobs:
   validate-charts:
-    runs-on: ubuntu-22.04
+    runs-on: runs-on
     steps:
       - name: Git Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Dependencies
         run: pip3 install pyyaml
@@ -26,9 +21,9 @@ jobs:
         uses: azure/setup-helm@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.12"
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@v2.6.1
@@ -60,12 +55,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.13"
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@v2.6.1
@@ -107,31 +102,3 @@ jobs:
       - name: Run chart-testing (install) ${{ matrix.k8s }}
         run: |
           ct install --all --namespace=default
-
-  publish-charts:
-    runs-on: ubuntu-22.04
-    needs: test-charts
-    if: github.ref_name == 'main'
-    steps:
-      - name: Git Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Install Helm
-        uses: azure/setup-helm@v3
-
-      - name: Add Helm Repos
-        run: helm repo add bitnami https://charts.bitnami.com/bitnami
-
-      - name: Configure Git
-        run: |
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor }}@users.noreply.github.com"
-
-      - name: Publish Charts
-        uses: helm/chart-releaser-action@v1.5.0
-        with:
-          version: v1.5.0
-        env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
