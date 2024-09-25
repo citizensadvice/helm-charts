@@ -1,0 +1,33 @@
+name: Publish Charts
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-charts:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Install Helm
+        uses: azure/setup-helm@v3
+
+      - name: Add Helm Repos
+        run: helm repo add bitnami https://charts.bitnami.com/bitnami
+
+      - name: Configure Git
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Publish Charts
+        uses: helm/chart-releaser-action@v1.5.0
+        with:
+          version: v1.5.0
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
