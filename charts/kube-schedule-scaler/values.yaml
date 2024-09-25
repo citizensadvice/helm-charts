@@ -1,0 +1,16 @@
+kubeScheduleScaler:
+  kubeScheduleScaler:
+    image:
+      repository: public.ecr.aws/citizensadvice/kube-schedule-scaler
+      tag: master
+    imagePullPolicy: Always
+    resources:
+      limits:
+        memory: 128Mi
+      requests:
+        cpu: 50m
+        memory: 128Mi
+  replicas: 1
+  serviceAccount:
+    annotations: {}
+kubernetesClusterDomain: cluster.local
