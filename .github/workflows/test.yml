@@ -1,3 +1,5 @@
+name: Validate and Test Charts
+
 on:
   pull_request:
     branches:
@@ -41,7 +43,7 @@ jobs:
           CHARTS_DIR: charts
 
   test-charts:
-    name: Test Charts
+    name: Test Charts on Kubernetes ${{ matrix.k8s }}
     runs-on: runs-on
     permissions:
       id-token: write
