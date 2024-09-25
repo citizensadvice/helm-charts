@@ -9,6 +9,7 @@ concurrency:
 
 jobs:
   validate-charts:
+    name: Validate Charts
     runs-on: runs-on
     steps:
       - name: Git Checkout
@@ -40,8 +41,8 @@ jobs:
           CHARTS_DIR: charts
 
   test-charts:
-    name: test-charts
-    runs-on: ubuntu-latest
+    name: Test Charts
+    runs-on: runs-on
     permissions:
       id-token: write
       contents: read
