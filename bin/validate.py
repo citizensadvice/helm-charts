@@ -1,6 +1,6 @@
-from operator import truediv
 from os import listdir, getcwd, path, environ
-import yaml, re
+import yaml
+import re
 
 def try_get_value(chart: dict, key: str) -> str | dict:
     try:
