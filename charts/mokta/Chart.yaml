@@ -3,7 +3,7 @@ name: mokta
 description: Standalone implementation of Mokta 3 for use with review apps - https://github.com/citizensadvice/mokta
 type: application
 version: 0.4.11
-appVersion: 3.3.5
+appVersion: 3.4.0
 home: https://github.com/citizensadvice/helm-charts
 maintainers:
   - email: ca-devops@citizensadvice.org.uk
