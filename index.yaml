@@ -110,6 +110,20 @@ entries:
     version: 0.2.2
   mokta:
   - apiVersion: v2
+    appVersion: 3.4.0
+    created: "2025-05-28T10:47:00.310677271Z"
+    description: Standalone implementation of Mokta 3 for use with review apps - https://github.com/citizensadvice/mokta
+    digest: 7d5dfd16d6cb1a79d9b98d1c69031a0fb14aed4607044436a1ab6e78c1c4f5bb
+    home: https://github.com/citizensadvice/helm-charts
+    maintainers:
+    - email: ca-devops@citizensadvice.org.uk
+      name: CA Devops
+    name: mokta
+    type: application
+    urls:
+    - https://github.com/citizensadvice/helm-charts/releases/download/mokta-0.4.11/mokta-0.4.11.tgz
+    version: 0.4.11
+  - apiVersion: v2
     appVersion: 3.3.3
     created: "2024-09-30T14:31:31.947816705Z"
     description: Standalone implementation of Mokta 3 for use with review apps - https://github.com/citizensadvice/mokta
@@ -264,6 +278,28 @@ entries:
     - https://github.com/citizensadvice/helm-charts/releases/download/mokta-0.1.1/mokta-0.1.1.tgz
     version: 0.1.1
   postcoder-proxy:
+  - apiVersion: v2
+    appVersion: 4.3.3
+    created: "2025-05-28T10:47:00.449458002Z"
+    dependencies:
+    - alias: redis
+      condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - postcoder-redis
+      version: 16.13.2
+    description: A Helm chart for Kubernetes
+    digest: 5b5f1dec2a61431f1bc41a2178670338a5341444835aed439a5c1edb3881b162
+    home: https://github.com/citizensadvice/helm-charts
+    maintainers:
+    - email: ca-devops@citizensadvice.org.uk
+      name: CA Devops
+    name: postcoder-proxy
+    type: application
+    urls:
+    - https://github.com/citizensadvice/helm-charts/releases/download/postcoder-proxy-0.4.6/postcoder-proxy-0.4.6.tgz
+    version: 0.4.6
   - apiVersion: v2
     appVersion: 4.3.2
     created: "2024-06-04T09:07:50.305312256Z"
@@ -428,4 +464,4 @@ entries:
     urls:
     - charts/postcoder-proxy-0.2.0.tgz
     version: 0.2.0
-generated: "2024-09-30T14:31:31.947896815Z"
+generated: "2025-05-28T10:47:00.449546317Z"
