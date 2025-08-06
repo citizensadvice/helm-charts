@@ -95,7 +95,8 @@ redis:
   architecture: standalone
   image:
     registry: docker.io
-    repository: bitnami/redis
+    repository: redis
+    tag: 6.2.19
     pullPolicy: IfNotPresent
   auth:
     enabled: false
