@@ -19,6 +19,20 @@ entries:
     version: 7.6.2
   image-resizer:
   - apiVersion: v2
+    appVersion: v2.5.2
+    created: "2026-11-23T04:28:55.693023554Z"
+    description: Image resizing service - https://github.com/citizensadvice/image-resizer
+    digest: ef88dcad60e831e21094ac8dfdcbdda4f0a3f1b9bcc0d90671ba0a8ada513c62
+    home: https://github.com/citizensadvice/helm-charts
+    maintainers:
+    - email: ca-devops@citizensadvice.org.uk
+      name: CA Devops
+    name: image-resizer
+    type: application
+    urls:
+    - https://github.com/citizensadvice/helm-charts/releases/download/image-resizer-0.4.1/image-resizer-0.4.1.tgz
+    version: 0.4.1
+  - apiVersion: v2
     appVersion: 2.4.0
     created: "2025-10-21T10:17:56.944628866Z"
     description: Image resizing service - https://github.com/citizensadvice/image-resizer
@@ -123,6 +137,20 @@ entries:
     - charts/image-resizer-0.2.2.tgz
     version: 0.2.2
   mokta:
+  - apiVersion: v2
+    appVersion: v3.6.2
+    created: "2026-11-23T04:28:55.829899089Z"
+    description: Standalone implementation of Mokta 3 for use with review apps - https://github.com/citizensadvice/mokta
+    digest: d1562740c1a72ef7783f81c647a6dc5d45fbd0c13fbc6ac6109eaba4ef32e432
+    home: https://github.com/citizensadvice/helm-charts
+    maintainers:
+    - email: ca-devops@citizensadvice.org.uk
+      name: CA Devops
+    name: mokta
+    type: application
+    urls:
+    - https://github.com/citizensadvice/helm-charts/releases/download/mokta-0.4.12/mokta-0.4.12.tgz
+    version: 0.4.12
   - apiVersion: v2
     appVersion: 3.4.0
     created: "2025-05-28T10:47:00.310677271Z"
@@ -292,6 +320,28 @@ entries:
     - https://github.com/citizensadvice/helm-charts/releases/download/mokta-0.1.1/mokta-0.1.1.tgz
     version: 0.1.1
   postcoder-proxy:
+  - apiVersion: v2
+    appVersion: v4.5.2
+    created: "2026-11-23T04:28:55.981612234Z"
+    dependencies:
+    - alias: redis
+      condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - postcoder-redis
+      version: 16.13.2
+    description: A Helm chart for Kubernetes
+    digest: 599058572bc90ad75af7c540f513d0e3677c808ca0573acf90bc668abf841dfb
+    home: https://github.com/citizensadvice/helm-charts
+    maintainers:
+    - email: ca-devops@citizensadvice.org.uk
+      name: CA Devops
+    name: postcoder-proxy
+    type: application
+    urls:
+    - https://github.com/citizensadvice/helm-charts/releases/download/postcoder-proxy-0.5.1/postcoder-proxy-0.5.1.tgz
+    version: 0.5.1
   - apiVersion: v2
     appVersion: 4.4.0
     created: "2025-10-22T10:52:57.09392049Z"
@@ -566,4 +616,4 @@ entries:
     urls:
     - charts/postcoder-proxy-0.2.0.tgz
     version: 0.2.0
-generated: "2025-10-22T10:52:57.094045921Z"
+generated: "2026-11-23T04:28:55.981719416Z"
